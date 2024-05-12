@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculatorApp.MVVM.View.CalculatorView"
+             xmlns:gauge="clr-namespace:Syncfusion.Maui.Gauges;assembly=Syncfusion.Maui.Gauges"
+             Title="CalculatorView">
+    <ScrollView>
+        <ScrollView.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Offset="0.0" Color="#572375"/>
+                <GradientStop Offset="1" Color="#a594f9"/>
+            </LinearGradientBrush>
+        </ScrollView.Background>
+
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+            <Frame
+                HeightRequest="150">
+                <HorizontalStackLayout
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Spacing="40">
+                    <Button HeightRequest="80"
+                        WidthRequest="80"
+                        CornerRadius="50"
+                        Text="M"
+                        FontSize="40"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="WhiteSmoke"
+                        BorderWidth="2"
+                        BorderColor="FloralWhite"/>  
+                    
+                    <Button HeightRequest="80"
+                        WidthRequest="80"
+                        CornerRadius="50"
+                        Text="F"
+                        FontSize="40"
+                        TextColor="Black"
+                        FontAttributes="Bold"                    
+                        BackgroundColor="White"
+                        BorderWidth="2"
+                        BorderColor="FloralWhite"/>
+                </HorizontalStackLayout>
+            </Frame>
+            <!--#region Gender -->
+
+            <!--#endregion-->
+
+            <!--#region Height -->
+            <Frame>
+                <VerticalStackLayout>
+                    <Label FontSize="Large"
+                           HorizontalOptions="Center"
+                           Text="Height (cm)"
+                           TextColor="Gray"/>
+                    <gauge:SfLinearGauge Margin="0,15,0,0"
+                            Interval="50"
+                            Maximum="250"
+                            Minimum="25">
+                        <gauge:SfLinearGauge.MarkerPointers>
+                            <gauge:LinearContentPointer x:Name="HeightPointer" IsInteractive="True"
+                                Position="Cross" Value="{Binding BMI.Height}">
+                                <gauge:LinearContentPointer.Content>
+                                    <Grid HeightRequest="25" WidthRequest="50">
+                                        <RoundRectangle CornerRadius="5" Fill="Blue"/>
+                                        <Label HorizontalOptions="Center" 
+                                               Text="{Binding Source={x:Reference HeightPointer}
+                                                     ,Path=Value, StringFormat='{0:0}'}"
+                                               TextColor="White" VerticalOptions="Center"/>
+                                    </Grid>
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+                        </gauge:SfLinearGauge.MarkerPointers>
+                    </gauge:SfLinearGauge>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--#endregion-->
+
+            <!--#region Width -->
+            <Frame>
+                <VerticalStackLayout>
+                    <Label FontSize="Large" HorizontalOptions="Center"
+                           Text="Weight (Kg)" TextColor="Gray"/>
+                    <gauge:SfLinearGauge Margin="0,15,0,0"            
+                            Maximum="200"
+                            Minimum="20">
+                        <gauge:SfLinearGauge.MarkerPointers>
+                            <gauge:LinearContentPointer x:Name="WeightPointer"
+                                    IsInteractive="True" Position="Cross" Value="{Binding BMI.Weight}">
+                                <gauge:LinearContentPointer.Content>
+                                    <Grid HeightRequest="25" WidthRequest="50">
+                                        <RoundRectangle CornerRadius="5" Fill="Blue"/>
+                                        <Label HorizontalOptions="Center"
+                                               Text="{Binding Source={x:Reference WeightPointer}
+                                               ,Path=Value, StringFormat='{0:0}'}" TextColor="White" VerticalOptions="Center"/>
+                                    </Grid>
+                                </gauge:LinearContentPointer.Content>
+                            </gauge:LinearContentPointer>
+                        </gauge:SfLinearGauge.MarkerPointers>
+                    </gauge:SfLinearGauge>
+                </VerticalStackLayout>
+            </Frame>
+            <!--#endregion-->
+
+            <!--#region Result -->
+            <Frame>
+                <VerticalStackLayout>
+                    <Label FontSize="Medium"
+                           HorizontalOptions="Center"
+                           Text="{Binding BMI.ResultText}"/>
+                    <gauge:SfRadialGauge Margin="0,-55,0,-55">
+                        <gauge:SfRadialGauge.Axes>
+                            <gauge:RadialAxis                                
+                                Minimum="11.9"
+                                Maximum="42"
+                                ShowAxisLine="False"
+                                ShowLabels="False"
+                                ShowTicks="False">
+                                <gauge:RadialAxis.Ranges>
+                                    <gauge:RadialRange
+                                        EndValue="18.4"
+                                        EndWidth="0.65"
+                                        Fill="#A9DF51"
+                                        StartValue="11.9"
+                                        StartWidth="0.65"
+                                        WidthUnit="Factor" />
+                                    <gauge:RadialRange
+                                        EndValue="24.9"
+                                        EndWidth="0.65"
+                                        Fill="#418B45"
+                                        StartValue="18.5"
+                                        StartWidth="0.65"
+                                        WidthUnit="Factor" />
+                                    <gauge:RadialRange
+                                        EndValue="29.9"
+                                        EndWidth="0.65"
+                                        Fill="#F68F30"
+                                        StartValue="25"
+                                        StartWidth="0.65"
+                                        WidthUnit="Factor" />
+                                    <gauge:RadialRange
+                                        EndValue="42"
+                                        EndWidth="0.65"
+                                        Fill="#c21913"
+                                        StartValue="30"
+                                        StartWidth="0.65"
+                                        WidthUnit="Factor" />
+                                    <gauge:RadialRange StartValue="0"
+                                                       EndValue="50"
+                                                       StartWidth="0.65"
+                                                       EndWidth="0.65"
+                                                       Fill="DeepSkyBlue"/>
+                                </gauge:RadialAxis.Ranges>
+
+                                <gauge:RadialAxis.Pointers>
+                                    <gauge:NeedlePointer
+                                        x:Name="pointer"
+                                        KnobRadius="15"
+                                        KnobSizeUnit="Pixel"
+                                        NeedleEndWidth="15"
+                                        NeedleLength="0.6"
+                                        NeedleStartWidth="2"
+                                        Value="{Binding BMI.Result}" />
+                                </gauge:RadialAxis.Pointers>
+                            </gauge:RadialAxis>
+                        </gauge:SfRadialGauge.Axes>
+                    </gauge:SfRadialGauge>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--#endregion-->
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
