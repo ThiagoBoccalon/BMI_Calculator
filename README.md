@@ -10,3 +10,5 @@ And then, your result will be able to show as underweight, normal, overweight or
 
 
 To build this app I used [.NET MAUI Radial Gauge Control](https://help.syncfusion.com/maui/radial-gauge/getting-started).
+
+![calculator-gif](https://github.com/ThiagoBoccalon/SimpleCalculator/assets/12734382/6654c668-d41d-4400-9eb3-aa14e36bb9b0)
