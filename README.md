@@ -11,4 +11,5 @@ And then, your result will be able to show as underweight, normal, overweight or
 
 To build this app I used [.NET MAUI Radial Gauge Control](https://help.syncfusion.com/maui/radial-gauge/getting-started).
 
-![calculator-gif](https://github.com/ThiagoBoccalon/SimpleCalculator/assets/12734382/6654c668-d41d-4400-9eb3-aa14e36bb9b0)
+
+![Recording 2024-05-12 112903](https://github.com/ThiagoBoccalon/BMI_Calculator/assets/12734382/d28b3f2d-d4fe-4287-a96a-56eb000f8a62)
