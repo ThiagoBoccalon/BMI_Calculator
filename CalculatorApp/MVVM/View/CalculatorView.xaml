@@ -13,37 +13,46 @@
         </ScrollView.Background>
 
         <VerticalStackLayout
-            Spacing="25"
+            Spacing="15"
             Padding="30,0"
             VerticalOptions="Center">
             <Frame
-                HeightRequest="150">
-                <HorizontalStackLayout
-                    HeightRequest="100"
-                    HorizontalOptions="Center"
-                    Spacing="40">
-                    <Button HeightRequest="80"
-                        WidthRequest="80"
-                        CornerRadius="50"
-                        Text="M"
-                        FontSize="40"
-                        TextColor="Black"
-                        FontAttributes="Bold"
-                        BackgroundColor="WhiteSmoke"
-                        BorderWidth="2"
-                        BorderColor="FloralWhite"/>  
+                HeightRequest="160">
+                <VerticalStackLayout>
+                    <Label FontSize="Large"
+                           HorizontalOptions="Center"
+                           Text="Gender"
+                           TextColor="Gray"/>
+                    <HorizontalStackLayout
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        Spacing="40">
+                        <Button x:Name="myButton"
+                            HeightRequest="80"
+                            WidthRequest="80"
+                            CornerRadius="50"
+                            Text="M"
+                            FontSize="40"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            BackgroundColor="{Binding GenderMale}"
+                            BorderWidth="2"
+                            BorderColor="FloralWhite"
+                            Command="{Binding SelectedGenderAsMale}"/>  
                     
-                    <Button HeightRequest="80"
-                        WidthRequest="80"
-                        CornerRadius="50"
-                        Text="F"
-                        FontSize="40"
-                        TextColor="Black"
-                        FontAttributes="Bold"                    
-                        BackgroundColor="White"
-                        BorderWidth="2"
-                        BorderColor="FloralWhite"/>
-                </HorizontalStackLayout>
+                        <Button HeightRequest="80"
+                            WidthRequest="80"
+                            CornerRadius="50"
+                            Text="F"
+                            FontSize="40"
+                            TextColor="Black"
+                            FontAttributes="Bold"                    
+                            BackgroundColor="{Binding GenderFamale}"
+                            BorderWidth="2"
+                            BorderColor="FloralWhite"
+                            Command="{Binding SelectedGenderAsFamale}"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
             </Frame>
             <!--#region Gender -->
 
